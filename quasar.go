@@ -86,7 +86,7 @@ func handleConnection(conn net.Conn) {
 			return
 		}
 
-		println(mobj.username + ": " + msg)
+		println(mobj.username + ": " + strings.TrimSuffix(msg, "\n"))
 		mobj.payload = msg
 
 		n, err := conn.Write([]byte("Received!\n"))
